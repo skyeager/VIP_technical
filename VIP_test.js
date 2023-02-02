@@ -9,8 +9,43 @@ function allPairs(nums) {
     return [num, x]
   })
 }
-
 console.log(allPairs(nums))
+
+pairs = allPairs(nums)
+
+function uniqPairs(pairs) {
+  const seen = new Set()
+  return pairs.filter((pair) => {
+    const key = pair.join('')
+    if (seen.has(key)) {
+      return false
+    } else {
+      seen.add(key)
+      return true
+    }
+  })
+}
+
+console.log(uniqPairs(pairs))
+
+//no repeat indices
+
+// function uniquePairs(arr) {
+//   const arrayOfStrings = arr.map((element) => {
+//     return element.join('-')
+//   })
+//   const newSet= new Set(arrayOfStrings)
+//   const arrray=[]
+//   newSet.forEach(element){
+//     //go through each array, filter pair based on whether it exists or not
+//   }
+// }
+
+// console.log(uniquePairs(allPairs(nums)))
+
+// ******************
+
+//use .sort for the last problem
 
 // const allPairs = nums?.map((num) => {
 //   let x = 10 - num
